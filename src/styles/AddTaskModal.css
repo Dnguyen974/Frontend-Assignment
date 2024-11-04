@@ -1,119 +1,128 @@
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
+	top: 0;
+	position: fixed;
+	right: 0;
+	left: 0;
+  	bottom: 0;
+ 	background-color: rgba(0, 0, 0, 0.7);
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	z-index: 1000;
+}
 
-  .modal-content {
-    background-color: #f9f9f9; /* Light background */
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    width: 400px;
-    max-width: 90%;
-    transition: transform 0.3s ease;
-    animation: fadeIn 0.3s;
-  }
+.modal-content {
+  	background-color: #f9f9f9;
+  	border-radius: 12px;
+  	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  	padding: 30px;
+  	width: 400px;
+  	max-width: 90%;
+  	transition: transform 0.3s ease;
+  	animation: fadeIn 0.3s;
+}
 
-  .modal-title {
-    margin: 0 0 15px;
-    font-size: 24px;
-    color: #333; /* Dark text */
-    text-align: center;
-  }
+.modal-title {
+  	margin: 0 0 15px;
+  	font-size: 24px;
+  	color: #333;
+  	text-align: center;
+}
 
-  .modal-label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: 600;
-    font-size: 16px;
-  }
+.modal-label {
+  	display: block;
+  	margin: 10px 0 5px;
+  	font-weight: 600;
+  	font-size: 16px;
+}
 
-  .modal-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    font-size: 14px;
-    transition: border-color 0.3s;
-  }
+.modal-input {
+  	width: 100%;
+  	padding: 12px;
+  	border: 1px solid #ccc;
+  	border-radius: 8px;
+  	margin-bottom: 15px;
+  	font-size: 14px;
+  	transition: border-color 0.3s;
+}
 
-  .modal-input:focus {
-    border-color: #007bff; /* Focus color */
-    outline: none;
-  }
+.modal-input:focus {
+  	border-color: #007bff;
+  	outline: none;
+}
 
-  .tag-title {
-    margin: 15px 0 5px;
-    font-weight: bold;
-  }
+.tag-title {
+  	margin: 15px 0 5px;
+  	font-weight: bold;
+}
 
-  .tag-label {
-    display: flex;
-    align-items: center;
-    margin: 8px 0;
-    font-size: 14px;
-    cursor: pointer;
-  }
+.tag-list {
+  	max-height: 150px; /* Set a max height for the tag list */
+  	overflow-y: auto;  /* Enable vertical scrolling */
+  	margin-top: 10px;
+  	border: 1px solid #ccc; /* Optional: add a border */
+  	border-radius: 8px; /* Rounded corners for the list */
+  	padding: 10px; /* Padding inside the tag list */
+  	background-color: #fff; /* White background for the list */
+}
 
-  .tag-checkbox {
-    margin-right: 10px;
-  }
+.tag-label {
+  	display: flex;
+  	align-items: center;
+  	margin: 8px 0;
+  	font-size: 14px;
+  	cursor: pointer;
+}
 
-  .modal-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
+.tag-checkbox {
+  	margin-right: 10px;
+}
 
-  .modal-button {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 16px;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-  }
+.modal-buttons {
+  	display: flex;
+  	justify-content: space-between;
+  	margin-top: 20px;
+}
 
-  .modal-button.add {
-    background-color: #28a745; /* Green for add */
-  }
+.modal-button {
+  	flex: 1;
+  	padding: 12px;
+  	border: none;
+  	border-radius: 8px;
+  	color: #fff;
+  	font-size: 16px;
+  	margin: 0 5px;
+  	cursor: pointer;
+  	transition: background-color 0.3s, transform 0.2s;
+}
 
-  .modal-button.cancel {
-    background-color: #dc3545; /* Red for cancel */
-  }
+.modal-button.add {
+  	background-color: #28a745;
+}
 
-  .modal-button:hover {
-    transform: translateY(-2px);
-  }
+.modal-button.cancel {
+  	background-color: #dc3545;
+}
 
-  .modal-button.add:hover {
-    background-color: #218838;
-  }
+.modal-button:hover {
+  	transform: translateY(-2px);
+}
 
-  .modal-button.cancel:hover {
-    background-color: #c82333;
-  }
+.modal-button.add:hover {
+  	background-color: #218838;
+}
 
-  /* Keyframe for fade in animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+.modal-button.cancel:hover {
+  	background-color: #c82333;
+}
+
+@keyframes fadeIn {
+  	from {
+      	opacity: 0;
+      	transform: translateY(-20px);
+  	}
+  	to {
+    	opacity: 1;
+      	transform: translateY(0);
+  	}
+}
