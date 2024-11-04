@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
   box-sizing: border-box;
 }
@@ -6,13 +7,18 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif; /* Using Google Fonts */
   background-color: #f4f4f4;
-  font-size: medium;
+  font-size: 16px; /* Adjusted base font size for consistency */
+  line-height: 1.6; /* Improved readability */
 }
 
+/* Navigation Styles */
 nav {
   background-color: #333;
-  padding: 20px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px 10%; /* Responsive padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: sticky; /* Keep the nav fixed at the top */
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top of other content */
 }
 
 nav ul {
@@ -32,13 +38,15 @@ nav a {
   text-decoration: none;
   padding: 10px 15px;
   border-radius: 5px;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s; /* Added transform for button effect */
 }
 
 nav a:hover {
   background-color: #575757;
+  transform: scale(1.05); /* Scale effect on hover for better feedback */
 }
 
+/* Responsive Navigation Styles */
 @media (max-width: 768px) {
   nav ul {
       flex-direction: column;
@@ -67,6 +75,7 @@ h1 {
   text-align: center;
   color: #333;
   margin: 50px 0;
+  font-size: 2.5rem; /* Increased size for emphasis */
 }
 
 .container {
@@ -74,12 +83,13 @@ h1 {
   margin: 20px auto;
   padding: 20px;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px; /* Rounded corners for a softer look */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow for more depth */
 }
 
 .container p {
   line-height: 1.6;
+  color: #555; /* Slightly lighter text for improved readability */
 }
 
 /* Additional styling for better mobile experience */
@@ -90,10 +100,32 @@ h1 {
   }
 
   h1 {
-      font-size: 1.5em;
+      font-size: 1.8em; /* Adjusted heading size for smaller screens */
   }
 
   .container p {
-      font-size: 0.9em;
+      font-size: 0.95em; /* Adjusted paragraph size for smaller screens */
   }
+}
+
+/* Button Styles (if applicable) */
+button {
+  background-color: #007bff; /* Primary button color */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded button edges */
+  padding: 10px 20px; /* Button padding */
+  font-size: 1rem; /* Button text size */
+  cursor: pointer; /* Pointer cursor for buttons */
+  transition: background 0.3s, transform 0.2s; /* Smooth transition for hover effects */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+button:focus {
+  outline: none; /* Remove outline on focus */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a focus ring */
 }

@@ -1,23 +1,46 @@
 .card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    margin: 8px;
-    transition: transform 0.2s;
+    background-color: #ffffff; /* White background for a clean look */
+    border-radius: 12px; /* More pronounced rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    padding: 20px; /* Increased padding for more space */
+    margin: 12px; /* Slightly larger margin */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transitions */
+    position: relative; /* For absolute positioning of the button */
 }
 
 .card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px); /* More noticeable hover effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
 }
 
 .card-title {
-    font-size: 1.5rem;
-    color: #333;
-    margin: 0 0 8px 0;
+    font-size: 1.6rem; /* Slightly larger font size */
+    color: #2c3e50; /* Darker text for better readability */
+    margin: 0 0 12px; /* Spacing adjustments */
+    font-weight: bold; /* Bold font for emphasis */
 }
 
 .card-tags {
-    font-size: 1rem;
-    color: #666;
+    font-size: 1rem; /* Consistent font size */
+    color: #7f8c8d; /* Softer color for tags */
+    margin: 0 0 16px; /* Spacing below tags */
+}
+
+.remove-task-button {
+    background-color: #e74c3c; /* Vibrant red for the remove button */
+    color: #ffffff; /* White text for contrast */
+    border: none; /* No border */
+    border-radius: 6px; /* Rounded corners */
+    padding: 10px 16px; /* Adequate padding */
+    font-size: 1rem; /* Font size for the button */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    position: absolute; /* Position button within card */
+    bottom: 16px; /* Space from bottom */
+    right: 16px; /* Space from right */
+}
+
+.remove-task-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+    transform: translateY(-2px); /* Slight lift effect */
 }
