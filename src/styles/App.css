@@ -1,131 +1,185 @@
 /* Global Styles */
 * {
-  	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  	margin: 0;
-  	font-family: 'Roboto', sans-serif; /* Using Google Fonts */
-  	background-color: #f4f4f4;
-  	font-size: 16px; /* Adjusted base font size for consistency */
-  	line-height: 1.6; /* Improved readability */
+    margin: 0;
+    font-family: 'Roboto', sans-serif; /* Using Google Fonts */
+    background-color: #f4f4f4;
+    font-size: 16px; /* Adjusted base font size for consistency */
+    line-height: 1.6; /* Improved readability */
 }
 
 /* Navigation Styles */
 nav {
-  	background-color: #333;
-  	padding: 20px 10%; /* Responsive padding */
-  	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  	position: sticky; /* Keep the nav fixed at the top */
-  	top: 0;
-  	z-index: 1000; /* Ensure it stays on top of other content */
+    background-color: #333;
+    padding: 20px 10%; /* Responsive padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: sticky; /* Keep the nav fixed at the top */
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top of other content */
 }
 
 nav ul {
-  	list-style-type: none;
-  	padding: 0;
-  	display: flex;
-  	justify-content: center;
-  	margin: 0;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
 }
 
 nav li {
-  	margin: 0 15px;
+    margin: 0 15px;
 }
 
 nav a {
-  	color: white;
-  	text-decoration: none;
-  	padding: 10px 15px;
-  	border-radius: 5px;
-  	transition: background 0.3s, transform 0.2s; /* Added transform for button effect */
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s; /* Added transform for button effect */
 }
 
 nav a:hover {
-  	background-color: #575757;
-  	transform: scale(1.05); /* Scale effect on hover for better feedback */
+    background-color: #575757;
+    transform: scale(1.05); /* Scale effect on hover for better feedback */
 }
 
 /* Responsive Navigation Styles */
 @media (max-width: 768px) {
-  	nav ul {
-    	flex-direction: column;
-      	align-items: center;
-  	}
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  	nav li {
-    	margin: 10px 0;
-  	}
+    nav li {
+        margin: 10px 0;
+    }
 
-  	nav a {
-		padding: 10px;
-    	font-size: 14px;
-  	}
+    nav a {
+        padding: 10px;
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
-  	nav a {
-    	font-size: 12px;
-      	padding: 8px;
-  	}
+    nav a {
+        font-size: 12px;
+        padding: 8px;
+    }
 }
 
 /* Page Styles */
 h1 {
-	text-align: center;
-  	color: #333;
-  	margin: 50px 0;
-  	font-size: 2.5rem; /* Increased size for emphasis */
+    text-align: center;
+    color: #333;
+    margin: 50px 0;
+    font-size: 2.5rem; /* Increased size for emphasis */
 }
 
 .container {
-  	max-width: 800px;
-  	margin: 20px auto;
-  	padding: 20px;
-  	background: white;
-  	border-radius: 12px; /* Rounded corners for a softer look */
-  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow for more depth */
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px; /* Rounded corners for a softer look */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow for more depth */
 }
 
 .container p {
-  	line-height: 1.6;
-  	color: #555; /* Slightly lighter text for improved readability */
+    line-height: 1.6;
+    color: #555; /* Slightly lighter text for improved readability */
 }
 
 /* Additional styling for better mobile experience */
 @media (max-width: 768px) {
-  	.container {
-    	margin: 10px;
-    	padding: 15px;
-  	}
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
 
-  	h1 {
-    	font-size: 1.8em; /* Adjusted heading size for smaller screens */
-  	}
+    h1 {
+        font-size: 1.8em; /* Adjusted heading size for smaller screens */
+    }
 
-  	.container p {
-    	font-size: 0.95em; /* Adjusted paragraph size for smaller screens */
-  	}
+    .container p {
+        font-size: 0.95em; /* Adjusted paragraph size for smaller screens */
+    }
 }
 
-/* Button Styles (if applicable) */
+/* Button Styles */
 button {
-  	background-color: #007bff; /* Primary button color */
-  	color: white; /* Button text color */
-  	border: none; /* No border */
-  	border-radius: 8px; /* Rounded button edges */
-  	padding: 10px 20px; /* Button padding */
-  	font-size: 1rem; /* Button text size */
-  	cursor: pointer; /* Pointer cursor for buttons */
-  	transition: background 0.3s, transform 0.2s; /* Smooth transition for hover effects */
+    background-color: #007bff; /* Primary button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded button edges */
+    padding: 10px 20px; /* Button padding */
+    font-size: 1rem; /* Button text size */
+    cursor: pointer; /* Pointer cursor for buttons */
+    transition: background 0.3s, transform 0.2s; /* Smooth transition for hover effects */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+	margin: 5px 15px;
 }
 
 button:hover {
-  	background-color: #0056b3; /* Darker shade on hover */
-  	transform: translateY(-2px); /* Lift effect on hover */
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
 }
 
 button:focus {
-  	outline: none; /* Remove outline on focus */
-  	box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a focus ring */
+    outline: none; /* Remove outline on focus */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Add a focus ring */
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Above all content */
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px; /* Rounded corners for modal */
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    width: 90%; /* Responsive width */
+    max-width: 500px; /* Max width for larger screens */
+}
+
+.modal-header, .modal-footer {
+    display: flex;
+    justify-content: space-between; /* Space between header/footer items */
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0; /* Remove default margin */
+}
+
+.modal-footer {
+    margin-top: 20px; /* Space above footer */
+}
+
+/* Tag Styles */
+.tag {
+    display: inline-block;
+    background-color: #eaeaea; /* Light background for tags */
+    color: #333; /* Dark text color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Padding for tags */
+    margin: 5px; /* Space between tags */
+    transition: background 0.3s; /* Smooth transition */
+}
+
+.tag:hover {
+    background-color: #d3d3d3; /* Darker shade on hover */
 }

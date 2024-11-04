@@ -51,31 +51,6 @@
     outline: none;
 }
 
-.tag-title {
-    margin: 15px 0 5px;
-    font-weight: bold;
-}
-
-.tag-container {
-    max-height: 150px; /* Set max height for scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
-    border: 1px solid #ccc; /* Optional border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 10px; /* Padding inside the container */
-}
-
-.tag-label {
-    display: flex;
-    align-items: center;
-    margin: 8px 0;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.tag-checkbox {
-    margin-right: 10px;
-}
-
 .modal-buttons {
     display: flex;
     justify-content: space-between;
