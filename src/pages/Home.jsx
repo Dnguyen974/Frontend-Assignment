@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { DndContext } from '@dnd-kit/core';
+import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import { arrayMove } from '@dnd-kit/sortable';
 import Card from '../components/Card';
 import TaskModal from '../components/AddTaskModal';
 import AddTagModal from '../components/AddTagModal';
 import FilterModal from '../components/FilterModal';
+import { SortableItem } from '../components/SortableItem'; // Create this component for sortable items
 
 const Home = () => {
     const [tasks, setTasks] = useState([]);
@@ -103,23 +107,40 @@ const Home = () => {
         setFilteredTasks(filtered);
     };
 
+    const handleDragEnd = (event) => {
+        const { active, over } = event;
+
+        if (active.id !== over.id) {
+            const oldIndex = filteredTasks.findIndex(task => task.id === active.id);
+            const newIndex = filteredTasks.findIndex(task => task.id === over.id);
+            const updatedTasks = arrayMove(filteredTasks, oldIndex, newIndex);
+            setFilteredTasks(updatedTasks);
+            // You may want to save the new order to your backend here
+        }
+    };
+
     return (
-        <div className="home">
-            <h1>Tasks</h1>
-            <button onClick={() => setIsModalOpen(true)}>Add Task</button>
-            <button onClick={() => setIsTagModalOpen(true)}>Add Tag</button>
-            <button onClick={() => setIsFilterModalOpen(true)}>Filter Tasks</button>
-            <div className="card-container">
-                {filteredTasks.map((task) => (
-                    <Card
-                        key={task.id}
-                        taskName={task.name}
-                        tags={getTagNames(task.tags.split(','))}
-                        onDelete={() => handleDeleteTask(task.id)}
-                        onEdit={() => handleEditButtonClick(task)}
-                    />
-                ))}
-            </div>
+        <DndContext onDragEnd={handleDragEnd}>
+            <SortableContext items={filteredTasks.map(task => task.id)} strategy={verticalListSortingStrategy}>
+                <div className="home">
+                    <h1>Tasks</h1>
+                    <button onClick={() => setIsModalOpen(true)}>Add Task</button>
+                    <button onClick={() => setIsTagModalOpen(true)}>Add Tag</button>
+                    <button onClick={() => setIsFilterModalOpen(true)}>Filter Tasks</button>
+                    <div className="card-container">
+                        {filteredTasks.map((task) => (
+                            <SortableItem key={task.id} id={task.id}>
+                                <Card
+                                    taskName={task.name}
+                                    tags={getTagNames(task.tags.split(','))}
+                                    onDelete={() => handleDeleteTask(task.id)}
+                                    onEdit={() => handleEditButtonClick(task)}
+                                />
+                            </SortableItem>
+                        ))}
+                    </div>
+                </div>
+            </SortableContext>
 
             {isModalOpen && (
                 <TaskModal
@@ -147,7 +168,7 @@ const Home = () => {
                     onFilter={handleFilterTasks}
                 />
             )}
-        </div>
+        </DndContext>
     );
 };
 
