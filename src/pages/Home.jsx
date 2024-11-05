@@ -6,7 +6,8 @@ import Card from '../components/Card';
 import TaskModal from '../components/AddTaskModal';
 import AddTagModal from '../components/AddTagModal';
 import FilterModal from '../components/FilterModal';
-import { SortableItem } from '../components/SortableItem'; // Create this component for sortable items
+import RemoveTagModal from '../components/RemoveTagModal'; // Import new modal
+import { SortableItem } from '../components/SortableItem';
 
 const Home = () => {
     const [tasks, setTasks] = useState([]);
@@ -15,6 +16,7 @@ const Home = () => {
     const [editingTask, setEditingTask] = useState(null);
     const [isTagModalOpen, setIsTagModalOpen] = useState(false);
     const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+    const [isRemoveTagModalOpen, setIsRemoveTagModalOpen] = useState(false); // New state for removing tags
     const [filteredTasks, setFilteredTasks] = useState([]);
 
     useEffect(() => {
@@ -26,7 +28,7 @@ const Home = () => {
         const response = await fetch('http://localhost:3010/tasks');
         const data = await response.json();
         setTasks(data);
-        setFilteredTasks(data); // Initialize filtered tasks to all tasks
+        setFilteredTasks(data);
     };
 
     const fetchTags = async () => {
@@ -100,6 +102,13 @@ const Home = () => {
         setIsTagModalOpen(false);
     };
 
+    const handleRemoveTag = async (tagId) => {
+        await fetch(`http://localhost:3010/tags/${tagId}`, {
+            method: 'DELETE',
+        });
+        fetchTags(); // Refresh tags after deletion
+    };
+
     const handleFilterTasks = (selectedTagIds) => {
         const filtered = tasks.filter((task) =>
             selectedTagIds.every((tagId) => task.tags.split(',').includes(tagId))
@@ -115,7 +124,7 @@ const Home = () => {
             const newIndex = filteredTasks.findIndex(task => task.id === over.id);
             const updatedTasks = arrayMove(filteredTasks, oldIndex, newIndex);
             setFilteredTasks(updatedTasks);
-            // You may want to save the new order to your backend here
+            // Optionally, save the new order to your backend here
         }
     };
 
@@ -123,9 +132,9 @@ const Home = () => {
         <DndContext onDragEnd={handleDragEnd}>
             <SortableContext items={filteredTasks.map(task => task.id)} strategy={verticalListSortingStrategy}>
                 <div className="home">
-                    {/* <h1>Tasks</h1> */}
                     <button onClick={() => setIsModalOpen(true)}>Add Task</button>
                     <button onClick={() => setIsTagModalOpen(true)}>Add Tag</button>
+                    <button onClick={() => setIsRemoveTagModalOpen(true)}>Remove Tag</button> {/* New button */}
                     <button onClick={() => setIsFilterModalOpen(true)}>Filter Tasks</button>
                     <div className="card-container">
                         {filteredTasks.map((task) => (
@@ -158,6 +167,14 @@ const Home = () => {
                 <AddTagModal
                     onClose={() => setIsTagModalOpen(false)}
                     onAddTag={handleAddTag}
+                />
+            )}
+
+            {isRemoveTagModalOpen && (
+                <RemoveTagModal
+                    availableTags={tags}
+                    onClose={() => setIsRemoveTagModalOpen(false)}
+                    onRemoveTag={handleRemoveTag}
                 />
             )}
 

@@ -12,12 +12,13 @@ body {
 
 /* Navigation Styles */
 nav {
-    background-color: #333;
-    padding: 20px 10%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, #007bff, #0056b3); /* Gradient background */
+    padding: 15px 10%; /* Reduced padding for a more compact look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-radius: 0 0 20px 20px; /* Rounded bottom corners */
 }
 
 nav ul {
@@ -35,14 +36,32 @@ nav li {
 nav a {
     color: white;
     text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 12px 18px; /* Increased padding for better touch targets */
+    border-radius: 30px; /* Pill-shaped buttons */
     transition: background 0.3s, transform 0.2s;
+    position: relative; /* For the hover effect */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s, left 0.3s; /* Underline effect */
 }
 
 nav a:hover {
-    background-color: #575757;
+    background-color: rgba(255, 255, 255, 0.2); /* Light hover effect */
     transform: scale(1.05);
+    color: #ffffff; /* Ensure text remains white on hover */
+}
+
+nav a:hover::after {
+    width: 100%; /* Expand the underline */
+    left: 0; /* Move it to the left */
 }
 
 /* Responsive Navigation Styles */
@@ -118,7 +137,7 @@ button {
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	margin: 50px 0px 20px 30px;
+    margin: 50px 30px 20px 30px;
 }
 
 button:hover {
