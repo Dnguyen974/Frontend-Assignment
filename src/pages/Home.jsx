@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import Card from '../components/Card';
 import TaskModal from '../components/AddTaskModal';
 import AddTagModal from '../components/AddTagModal';
+import FilterModal from '../components/FilterModal';
 
 const Home = () => {
     const [tasks, setTasks] = useState([]);
     const [tags, setTags] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingTask, setEditingTask] = useState(null);
-    const [isTagModalOpen, setIsTagModalOpen] = useState(false); // State for the tag modal
+    const [isTagModalOpen, setIsTagModalOpen] = useState(false);
+    const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+    const [filteredTasks, setFilteredTasks] = useState([]);
 
     useEffect(() => {
         fetchTasks();
@@ -19,6 +22,7 @@ const Home = () => {
         const response = await fetch('http://localhost:3010/tasks');
         const data = await response.json();
         setTasks(data);
+        setFilteredTasks(data); // Initialize filtered tasks to all tasks
     };
 
     const fetchTags = async () => {
@@ -40,7 +44,7 @@ const Home = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newTask),
         });
-        fetchTasks(); // Refresh task list
+        fetchTasks();
         setIsModalOpen(false);
     };
 
@@ -60,16 +64,16 @@ const Home = () => {
             return;
         }
 
-        fetchTasks(); // Refresh task list
-        setEditingTask(null); // Reset editing task
-        setIsModalOpen(false); // Close modal
+        fetchTasks();
+        setEditingTask(null);
+        setIsModalOpen(false);
     };
 
     const handleDeleteTask = async (taskId) => {
         await fetch(`http://localhost:3010/tasks/${taskId}`, {
             method: 'DELETE',
         });
-        fetchTasks(); // Refresh task list after deletion
+        fetchTasks();
     };
 
     const handleEditButtonClick = (task) => {
@@ -85,11 +89,18 @@ const Home = () => {
         });
 
         if (response.ok) {
-            fetchTags(); // Refresh tag list
+            fetchTags();
         } else {
             console.error("Failed to add tag");
         }
-        setIsTagModalOpen(false); // Close tag modal after adding
+        setIsTagModalOpen(false);
+    };
+
+    const handleFilterTasks = (selectedTagIds) => {
+        const filtered = tasks.filter((task) =>
+            selectedTagIds.every((tagId) => task.tags.split(',').includes(tagId))
+        );
+        setFilteredTasks(filtered);
     };
 
     return (
@@ -97,8 +108,9 @@ const Home = () => {
             <h1>Tasks</h1>
             <button onClick={() => setIsModalOpen(true)}>Add Task</button>
             <button onClick={() => setIsTagModalOpen(true)}>Add Tag</button>
+            <button onClick={() => setIsFilterModalOpen(true)}>Filter Tasks</button>
             <div className="card-container">
-                {tasks.map((task) => (
+                {filteredTasks.map((task) => (
                     <Card
                         key={task.id}
                         taskName={task.name}
@@ -121,10 +133,18 @@ const Home = () => {
                 />
             )}
 
-            {isTagModalOpen && ( // Render the AddTagModal
+            {isTagModalOpen && (
                 <AddTagModal
                     onClose={() => setIsTagModalOpen(false)}
                     onAddTag={handleAddTag}
+                />
+            )}
+
+            {isFilterModalOpen && (
+                <FilterModal
+                    availableTags={tags}
+                    onClose={() => setIsFilterModalOpen(false)}
+                    onFilter={handleFilterTasks}
                 />
             )}
         </div>

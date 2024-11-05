@@ -118,7 +118,7 @@ button {
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	margin: 5px 15px;
+	margin: 5px 23px;
 }
 
 button:hover {
@@ -181,4 +181,11 @@ button:focus {
 
 .tag:hover {
     background-color: #d3d3d3;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
 }
