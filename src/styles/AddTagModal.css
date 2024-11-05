@@ -12,8 +12,8 @@
 }
 
 .modal-content {
-    background-color: #f9f9f9; /* Light background */
-    border-radius: 12px; /* Rounded corners */
+    background-color: #f9f9f9;
+    border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     padding: 30px;
     width: 400px;
@@ -25,7 +25,7 @@
 .modal-title {
     margin: 0 0 15px;
     font-size: 24px;
-    color: #333; /* Dark text */
+    color: #333;
     text-align: center;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .modal-input:focus {
-    border-color: #007bff; /* Focus color */
+    border-color: #007bff;
     outline: none;
 }
 
@@ -70,11 +70,11 @@
 }
 
 .modal-button.add {
-    background-color: #28a745; /* Green for add */
+    background-color: #28a745;
 }
 
 .modal-button.cancel {
-    background-color: #dc3545; /* Red for cancel */
+    background-color: #dc3545;
 }
 
 .modal-button:hover {

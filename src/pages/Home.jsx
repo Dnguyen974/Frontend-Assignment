@@ -96,7 +96,7 @@ const Home = () => {
         <div className="home">
             <h1>Tasks</h1>
             <button onClick={() => setIsModalOpen(true)}>Add Task</button>
-            <button onClick={() => setIsTagModalOpen(true)}>Add Tag</button> {/* Button to open tag modal */}
+            <button onClick={() => setIsTagModalOpen(true)}>Add Tag</button>
             <div className="card-container">
                 {tasks.map((task) => (
                     <Card
