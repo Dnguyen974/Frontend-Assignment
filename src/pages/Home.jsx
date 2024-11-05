@@ -123,7 +123,7 @@ const Home = () => {
         <DndContext onDragEnd={handleDragEnd}>
             <SortableContext items={filteredTasks.map(task => task.id)} strategy={verticalListSortingStrategy}>
                 <div className="home">
-                    <h1>Tasks</h1>
+                    {/* <h1>Tasks</h1> */}
                     <button onClick={() => setIsModalOpen(true)}>Add Task</button>
                     <button onClick={() => setIsTagModalOpen(true)}>Add Tag</button>
                     <button onClick={() => setIsFilterModalOpen(true)}>Filter Tasks</button>
