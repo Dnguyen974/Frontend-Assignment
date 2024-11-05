@@ -18,9 +18,15 @@ export const SortableItem = ({ id, children }) => {
         opacity: isDragging ? 0.5 : 1,
     };
 
+    // Pass only the drag listeners to the drag handle
+    const dragHandleListeners = {
+        ...attributes,
+        ...listeners,
+    };
+
     return (
-        <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-            {children}
+        <div ref={setNodeRef} style={style}>
+            {React.cloneElement(children, { dragHandleListeners })}
         </div>
     );
 };

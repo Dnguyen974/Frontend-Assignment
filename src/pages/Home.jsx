@@ -124,7 +124,6 @@ const Home = () => {
             const newIndex = filteredTasks.findIndex(task => task.id === over.id);
             const updatedTasks = arrayMove(filteredTasks, oldIndex, newIndex);
             setFilteredTasks(updatedTasks);
-            // Optionally, save the new order to your backend here
         }
     };
 
@@ -134,7 +133,7 @@ const Home = () => {
                 <div className="home">
                     <button onClick={() => setIsModalOpen(true)}>Add Task</button>
                     <button onClick={() => setIsTagModalOpen(true)}>Add Tag</button>
-                    <button onClick={() => setIsRemoveTagModalOpen(true)}>Remove Tag</button> {/* New button */}
+                    <button onClick={() => setIsRemoveTagModalOpen(true)}>Remove Tag</button>
                     <button onClick={() => setIsFilterModalOpen(true)}>Filter Tasks</button>
                     <div className="card-container">
                         {filteredTasks.map((task) => (

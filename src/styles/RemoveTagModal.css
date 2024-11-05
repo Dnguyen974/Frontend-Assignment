@@ -16,25 +16,25 @@
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     padding: 30px;
-    width: auto; /* Make width flexible */
-    max-width: 400px; /* Set a maximum width */
-    min-width: 300px; /* Optional: Set a minimum width */
+    width: auto;
+    max-width: 400px;
+    min-width: 300px;
     transition: transform 0.3s ease;
     animation: fadeIn 0.3s;
     justify-content: center;
 }
 
 .modal-header.remove {
-    display: flex; /* Use flexbox to center the content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    margin: 0 0 15px; /* Margin below the header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 15px;
 }
 
 .modal-title {
     font-size: 24px;
     color: #333;
-    text-align: center; /* Ensure text is centered */
+    text-align: center;
 }
 
 .modal-body {
@@ -42,9 +42,9 @@
 }
 
 .modal-body ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .modal-footer {
