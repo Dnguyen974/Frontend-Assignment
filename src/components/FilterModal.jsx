@@ -1,4 +1,3 @@
-// FilterModal.jsx
 import React, { useState, useEffect } from 'react';
 import '../styles/FilterModal.css';
 

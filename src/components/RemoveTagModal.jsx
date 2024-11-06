@@ -19,11 +19,11 @@ const RemoveTagModal = ({ availableTags, onClose, onRemoveTag }) => {
                 </div>
                 <div className="modal-body">
                     <p className="remove-info">Select a tag to remove:</p>
-                    <div className="tag-container"> {/* Added tag-container */}
+                    <div className="tag-container">
                         <ul>
                             {availableTags.map(tag => (
                                 <li key={tag.id}>
-                                    <label className="tag-label"> {/* Added tag-label for better styling */}
+                                    <label className="tag-label">
                                         <input
                                             type="radio"
                                             name="tag"
@@ -38,8 +38,8 @@ const RemoveTagModal = ({ availableTags, onClose, onRemoveTag }) => {
                     </div>
                 </div>
                 <div className="modal-footer">
-                    <button className="modal-button apply" onClick={handleRemove} disabled={!selectedTagId}>Remove Tag</button>
                     <button className="modal-button cancel" onClick={onClose}>Cancel</button>
+                    <button className="modal-button apply" onClick={handleRemove} disabled={!selectedTagId}>Remove Tag</button>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ import Card from '../components/Card';
 import TaskModal from '../components/AddTaskModal';
 import AddTagModal from '../components/AddTagModal';
 import FilterModal from '../components/FilterModal';
-import RemoveTagModal from '../components/RemoveTagModal'; // Import new modal
+import RemoveTagModal from '../components/RemoveTagModal';
 import { SortableItem } from '../components/SortableItem';
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
     const [editingTask, setEditingTask] = useState(null);
     const [isTagModalOpen, setIsTagModalOpen] = useState(false);
     const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
-    const [isRemoveTagModalOpen, setIsRemoveTagModalOpen] = useState(false); // New state for removing tags
+    const [isRemoveTagModalOpen, setIsRemoveTagModalOpen] = useState(false);
     const [filteredTasks, setFilteredTasks] = useState([]);
 
     useEffect(() => {

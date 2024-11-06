@@ -28,7 +28,7 @@ const AddTaskModal = ({ task, availableTags, onClose, onAddTask }) => {
             alert("Task name can't be empty!");
             return;
         }
-        onAddTask({ id: task?.id, name: taskName, tags: selectedTags.join(',') }); // Include task ID
+        onAddTask({ id: task?.id, name: taskName, tags: selectedTags.join(',') });
         onClose();
     };
 

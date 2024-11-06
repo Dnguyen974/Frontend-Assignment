@@ -5,7 +5,7 @@
     padding: 20px;
     margin: 12px;
     transition: transform 0.2s, box-shadow 0.2s;
-    position: relative; /* For absolute positioning of the button */
+    position: relative;
 }
 
 .card:hover {
@@ -15,10 +15,10 @@
 
 /* Style for the card when it is being dragged */
 .card.dragging {
-    opacity: 0.5; /* Make the card slightly transparent */
-    transform: scale(1.05); /* Slightly scale up the card */
-    cursor: grabbing; /* Change cursor to grabbing when dragging */
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25); /* Increase shadow for emphasis */
+    opacity: 0.5;
+    transform: scale(1.05);
+    cursor: grabbing;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
 }
 
 .card-title {
